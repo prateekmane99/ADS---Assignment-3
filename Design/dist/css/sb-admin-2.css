@@ -92,6 +92,7 @@ body {
 
 .sidebar .sidebar-search {
     padding: 15px;
+	
 }
 
 .sidebar ul li {
@@ -301,6 +302,7 @@ table.dataTable thead .sorting:after {
 
 .panel-green {
     border-color: #5cb85c;
+
 }
 
 .panel-green .panel-heading {

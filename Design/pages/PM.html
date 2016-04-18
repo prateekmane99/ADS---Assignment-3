@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+      <script type="text/javascript">
+
+     $( document ).ready(function() {
+        console.log(window.location.search.substring(1).split('=')[1])
+        var a = "../pages/inputvalue.html?abc="
+        var k = a.concat(window.location.search.substring(1).split('=')[1])
+
+        var b = "../pages/browsefile.html?abc="
+        var k2 = b.concat(window.location.search.substring(1).split('=')[1])
+
+        console.log(k)
+
+        $("#id1").attr("href", k)
+        $("#id2").attr("href", k2)
+
+    });
+
+     </script>
+
+   <!-- Bootstrap Core CSS -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+<style>
+body {
+    background-color: #f8f8f8;
+}
+
+#wrapper {
+    width: 100%;
+}
+
+#page-wrapper {
+    padding: 0 15px;
+    min-height: 568px;
+    background-color: #fff;
+}
+
+@media(min-width:768px) {
+    #page-wrapper {
+        position: inherit;
+        margin: 0 0 0 250px;
+        padding: 0 30px;
+        border-left: 1px solid #e7e7e7;
+    }
+}
+.sidebar .sidebar-nav.navbar-collapse {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.sidebar .sidebar-search {
+    padding: 15px;
+	
+}
+
+.sidebar ul li {
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.sidebar ul li a.active {
+    background-color: #eee;
+}
+
+.sidebar .arrow {
+    float: right;
+}
+
+.sidebar .fa.arrow:before {
+    content: "\f104";
+}
+
+.sidebar .active>a>.fa.arrow:before {
+    content: "\f107";
+}
+
+.sidebar .nav-second-level li,
+.sidebar .nav-third-level li {
+    border-bottom: 0!important;
+}
+
+.sidebar .nav-second-level li a {
+    padding-left: 37px;
+}
+
+.sidebar .nav-third-level li a {
+    padding-left: 52px;
+}
+
+@media(min-width:768px) {
+    .sidebar {
+        z-index: 1;
+        position: absolute;
+        width: 250px;
+        margin-top: 51px;
+    }
+.btn-outline {
+    color: inherit;
+    background-color: transparent;
+    transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+
+.btn-success.btn-outline {
+    color: #5cb85c;
+}
+
+.btn-info.btn-outline {
+    color: #5bc0de;
+}
+
+.btn-warning.btn-outline {
+    color: #f0ad4e;
+}
+
+.btn-danger.btn-outline {
+    color: #d9534f;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+    color: #fff;
+}
+	
+	.show-grid [class^=col-] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #ddd;
+    background-color: #eee!important;
+}
+
+.show-grid {
+    margin: 20px 0;
+}
+
+.huge {
+    font-size: 10px;
+	
+}
+.panel-primary a{
+    color:#fff;
+}
+.panel-green {
+    border-color: #5cb85c;
+	
+}
+
+.panel-green .panel-heading {
+    border-color: #5cb85c;
+    color: #fff;
+    background-color: #5cb85c;
+}
+
+.panel-green a {
+    color: #fff;
+}
+
+.panel-green a:hover {
+    color: #3d8b3d;
+}
+
+.panel-red {
+    border-color: #d9534f;
+	
+}
+
+.panel-red .panel-heading {
+    border-color: #d9534f;
+    color: #fff;
+    background-color: #d9534f;
+}
+
+.panel-red a {
+    color: #fff;
+}
+
+.panel-red a:hover {
+    color: #b52b27;
+}
+
+.panel-yellow {
+    border-color: #f0ad4e;
+	
+}
+
+.panel-yellow .panel-heading {
+    border-color: #f0ad4e;
+    color: #fff;
+    background-color: #f0ad4e;
+}
+
+.panel-yellow a {
+    color: #fff;
+}
+
+.panel-yellow a:hover {
+    color: #df8a13;
+}
+.panel{
+font-size:20;
+text-align : center;}
+
+
+</style>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">Energy Consumption Prediction v1.0</a>
+            </div>
+		</nav>
+		
+		<div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="../pages/Dashboardpage.html">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href ="#"><i class="fa fa-bar-chart-o fa-fw"></i>Visualization<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                               <li>
+                                    <a href="../pages/Visualizationmicro.html">Micro</a>
+                                </li>
+                                <li>
+                                    <a href="../pages/visualizationmacro.html">Macro</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                        </li>
+                        <li>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                        </li>
+                     
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+		<div id="page-wrapper">
+			<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Dashboard</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			
+		
+			
+			<div class="row">
+			
+				<div class="col-lg-8 col-md-3" >
+					<div class="panel" text-align = "center">
+                        <div class="panel-heading">
+                            <div class="row">
+                                
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"></div>
+                                    <div ><b>Public Library</b></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+					</div>
+			</div>
+			
+			<div class ="row">
+				<div class = "col-lg-10 col-md-3">
+				<div class ="panel" text-align = "center">
+				<a id = "id1" href="" class="btn btn-default" role="button">Input the Values</a>
+				OR
+				<a id = "id2" href="" class="btn btn-default" role="button">Attach the file</a>
+				</div>
+			</div>
+		</div>
+</body>

@@ -1,0 +1,192 @@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+
+  $(function () {
+
+     var DS_type = ""
+     $( document ).ready(function() {
+        DS_type = DS_type.concat(window.location.search.substring(1).split('=')[1])
+        console.log(DS_type)
+    });
+
+    $("#upload").bind("click", function () {
+      console.log("INSIDE CLICK");  
+      var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;
+      if (regex.test($("#fileUpload").val().toLowerCase())) {
+        if (typeof (FileReader) != "undefined") {
+          console.log("INSIDE READER");
+          var reader = new FileReader();
+
+          var page_type = "CSV"
+
+          reader.onload = function (e) {
+            console.log("ON LOAD");
+            $('#dynamictable').innerHTML = " ";
+            $('#dynamictable').append('<table border=1 id = "hy"></table>');
+            var table = $('#dynamictable').children();    
+            var flag = true;
+            var rows = e.target.result.split("\n");
+            var header;
+            console.log(rows.length);
+            
+            for (var i = 0; i < rows.length; i++) 
+            {
+              console.log('rows >>', rows[i]);          
+                          
+              if(!flag)
+              {
+                $.ajax(
+                  {
+                    //url: 'http://52.38.108.155:4030/query1?d='+rows[i]+'&h='+header,
+                    url: 'http://localhost:4030/query1?d='+rows[i]+'&h='+header + '&v6=' + DS_type + '&v7=' + page_type,
+                    type: 'GET',
+                    async : true,
+                    success: function(data) {
+                      console.log("DATA is " , data);
+                      cells = data.split(',')
+                      var html = "<tr>";
+                      for(var i = 0 ; i < cells.length - 1; i++)
+                      {
+                        html+="<td>";
+                        html+=cells[i];
+                        html+="</td>";
+                       
+                      }
+                      html+= "</tr>";
+                      table.append(html);
+
+                    },
+                    error: function(xhr, status, error) 
+                    {
+                                          console.log("xhr" , xhr);
+                                          console.log("xhr" , status);
+                                          console.log("xhr" , error);
+                    }
+                  });
+                }
+                else
+                {
+                  header = rows[i];
+                  cells = rows[i].split(',')
+                  var html1 = "<tr>";
+                 
+                  for(j = 0; j < cells.length - 1; j++)
+                  {
+                  
+                    html1+="<td>";
+                    html1+=cells[j];
+                    html1+="</td>";
+                  }
+                  html1+="<td>";
+                  html1+="Score Rank";
+                  html1+="</td>";
+
+                  html1+="<td>";
+                  html1+="Score Probability";
+                  html1 +="</td>";
+
+                  html1+= "</tr>";
+                  table.append(html1);
+                   flag =false;
+                }           
+              }
+            }
+            reader.readAsText($("#fileUpload")[0].files[0]);
+             
+          }
+            else 
+            {
+                                  alert("This browser does not support HTML5.");
+            }
+                              } else {
+                                alert("Please upload a valid CSV file.");
+                              }
+                            
+                            });
+
+
+$("#export").click(function (event) {
+ 
+  var $table = $('#dynamictable>table')
+  $rows = $table.find('tr');
+
+  var csvData = "";
+
+  for(var i=0;i<$rows.length;i++){
+                var $cells = $($rows[i]).children('th,td'); //header or content cells
+
+                for(var y=0;y<$cells.length;y++){
+                  if(y>0){
+                    csvData += ",";
+                  }
+                  var txt = ($($cells[y]).text()).toString().trim();
+                  if(txt.indexOf(',')>=0 || txt.indexOf('\"')>=0 || txt.indexOf('\n')>=0){
+                    txt = "\"" + txt.replace(/\"/g, "\"\"") + "\"";
+                  }
+                  csvData += txt;
+                }
+                csvData += '\n';
+              }
+
+              var content = csvData;
+              var link = document.createElement('a');
+              var blob = new Blob(["\ufeff", content]);
+              var url = URL.createObjectURL(blob);
+              link.href = url;
+              link.setAttribute('download', 'file.csv');
+              link.setAttribute('download', $("#fileUpload").val().split('\\')[2]);
+              link.click();
+
+            });
+
+
+/*$("#exPyT").click(function (event) {
+        $.ajax({
+                  type: "POST",
+                  url: "/Users/Prateek/Documents/Spring 2016/ADI/Assignment 2/Untitled2.py",
+                  success: function(response){
+     //here you do whatever you want with the response variable
+              document.write(response)
+                    }
+               });
+    });
+  */
+
+
+$("#exPyT").click(function (event) {
+        $.ajax({
+                  type: "POST",
+                  //url: "/Users/Prateek/Documents/Spring 2016/ADI/Assignment 2/Untitled2.py",
+                  url: "/Users/Prateek/Downloads/csvFolder/Untitled2.py",
+                  success: function(response){
+     //here you do whatever you want with the response variable
+                      console.log(response);
+
+                    }
+               });
+    });
+
+
+});
+</script> 
+<input type="file" id="fileUpload" />
+<input type="button" id="upload" value="Upload" />
+<!-- <select id = "place">
+  <option value="copley">copley</option>
+  <option value="roxbury">roxbury</option>
+  <option value="dorchester">dorchester</option>
+  <option value="mattapan">mattapan</option>
+</select>
+<select id = "building">
+  <option value="school">school</option>
+  <option value="hospital">hospital</option>
+  <option value="library">library</option>
+  <option value="university">university</option>
+</select>
+
+<input type="button" id="export" value="exportfdd" />
+<input type="button" id="ptyn" value="exPyT" /> -->
+
+<hr />
+<div id="dynamictable"></div>
+</div>

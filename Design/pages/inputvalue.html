@@ -26,7 +26,7 @@
         var DS_type = ""
      $( document ).ready(function() {
         DS_type = DS_type.concat(window.location.search.substring(1).split('=')[1])
-        console.log(DS_type)
+        //console.log(DS_type)
     });
 
 
@@ -35,19 +35,29 @@
      
           document.getElementById('op').value = " ";
           var acc = document.getElementById("account").value;
+          console.log(acc);
           var variable = document.getElementById("variable").value;
+          console.log(variable);
           //var kw = document.getElementById("kwh").value;
           var dd = document.getElementById("day");
           var d = dd.options[dd.selectedIndex].value;
+          console.log(d);
+           var seasn = document.getElementById("season").value;
+          console.log(seasn);
+             var wkday = document.getElementById("weekday").value;
+          console.log(wkday);
           var mnthh = document.getElementById("month");
           var mnth = mnthh.options[mnthh.selectedIndex].value;
+          console.log(mnth);
+         
+       
           var page_type = "IP"
 
                 $.ajax(
                   {
 
-                      url: 'http://52.38.108.155:4030/query1?v1=' + acc + '&v2=' + variable + '&v4=' + d + '&v5=' + mnth + '&v6=' + DS_type + '&v7=' + page_type,
-                    //url: 'http://localhost:4030/query1?v1=' + acc + '&v2=' + variable + '&v4=' + d + '&v5=' + mnth + '&v6=' + DS_type + '&v7=' + page_type,
+                    url: 'http://52.38.108.155:4030/query1?v1=' + acc + '&v2=' + variable + '&v3=' + seasn + '&v3_=' + wkday + '&v4=' + d + '&v5=' + mnth + '&v6=' + DS_type + '&v7=' + page_type,
+                    //url: 'http://localhost:4030/query1?v1=' + acc + '&v2=' + variable + '&v3=' + seasn + '&v3_=' + wkday + '&v4=' + d + '&v5=' + mnth + '&v6=' + DS_type + '&v7=' + page_type,
                     type: 'GET',
                     async : true,
                     success: function(data) {
@@ -356,6 +366,10 @@ margin-top:20px;
 				Account<input type="textbox" id ="account"/></div>
 				<div class = "col-lg-2 col-md-3">
 				Varaible<input type="textbox" id ="variable"/></div>
+                <div class = "col-lg-2 col-md-3">
+                Season<input type="textbox" id = "season"/></div>
+                <div class="col-lg-2 col-md-3">
+                Weekday<input type="textbox" id = "weekday"/></div>
 				<div class = "col-lg-2 col-md-3">
 				<div class = "date">
 				df$date<select name="day" id="day">

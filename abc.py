@@ -16,7 +16,6 @@ def main():
         abc = []
         abc.append(values.split(','))
 
-        #print(abc)
 
         data =  {
 
@@ -35,8 +34,8 @@ def main():
 
 
         if DS_type == "school":
-                url = 'https://ussouthcentral.services.azureml.net/workspaces/8aba4c4d1e034b56941f1f916e884791/services/13bf2e27aa51418a953ddeaf8ec5bfd5/execute?api-version=2.0&details=true'
-                api_key = 'Ix6qkPiMr/rIeBSswcAcIK+p3r2QQhMUqA+EmM1nx8C/rOJlUNhYWf1S/3UqUGRx/4lPCc8uC60u3ZeRI0nXbg=='
+                url = 'https://ussouthcentral.services.azureml.net/workspaces/8aba4c4d1e034b56941f1f916e884791/services/5f87bea224a14c1e960d32af6656628d/execute?api-version=2.0&details=true'
+                api_key = 'LZnvjFxHlTdOyAfRr5DimpXaZDWq3J64iIkO+eEFNX88bd956mcCCJsIvJrWr3eKSA+VniEru0IgQ7u9BxuJKw=='
         elif  DS_type == "BFD":
                 url = 'https://ussouthcentral.services.azureml.net/workspaces/8aba4c4d1e034b56941f1f916e884791/services/ee77034b2d0947f9a675dd11d3aa867e/execute?api-version=2.0&details=true'
                 api_key = 'ddMZyeiL/6a14Zlh2BlOfUkkf76A70/0DgtGuWVuXBy9RLploLlDAuAGe5PIP7cLmqcvRC805h7CjxV2ysijZw=='
@@ -47,8 +46,8 @@ def main():
                 url = 'https://ussouthcentral.services.azureml.net/workspaces/8aba4c4d1e034b56941f1f916e884791/services/25e8f06d5e7048bfa64f92cdb249c274/execute?api-version=2.0&details=true'
                 api_key = 'fy4lM67b2VzYJzELzVqqG6zxoodR1OFfi60GbTRabIHaBZfRAJrO1OHhehHKfc8n/TyJnmLGKXQ2JenfPMQUJg=='
         elif  DS_type == "PL":
-                url = 'https://ussouthcentral.services.azureml.net/workspaces/8aba4c4d1e034b56941f1f916e884791/services/13bf2e27aa51418a953ddeaf8ec5bfd5/execute?api-version=2.0&details=true'
-                api_key = 'Ix6qkPiMr/rIeBSswcAcIK+p3r2QQhMUqA+EmM1nx8C/rOJlUNhYWf1S/3UqUGRx/4lPCc8uC60u3ZeRI0nXbg=='
+                url = 'https://ussouthcentral.services.azureml.net/workspaces/8aba4c4d1e034b56941f1f916e884791/services/5f87bea224a14c1e960d32af6656628d/execute?api-version=2.0&details=true'
+                api_key = 'LZnvjFxHlTdOyAfRr5DimpXaZDWq3J64iIkO+eEFNX88bd956mcCCJsIvJrWr3eKSA+VniEru0IgQ7u9BxuJKw=='
 
 
         headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
@@ -79,7 +78,7 @@ def main():
         abc.append(kopi.split(','))
         header = header.split(',')
       
-        #print(abc)
+      
 
         data =  {
 
@@ -99,8 +98,8 @@ def main():
 
 
         if DS_type == "school":
-                url = 'https://ussouthcentral.services.azureml.net/workspaces/8aba4c4d1e034b56941f1f916e884791/services/13bf2e27aa51418a953ddeaf8ec5bfd5/execute?api-version=2.0&details=true'
-                api_key = 'Ix6qkPiMr/rIeBSswcAcIK+p3r2QQhMUqA+EmM1nx8C/rOJlUNhYWf1S/3UqUGRx/4lPCc8uC60u3ZeRI0nXbg=='
+                url = 'https://ussouthcentral.services.azureml.net/workspaces/8aba4c4d1e034b56941f1f916e884791/services/5f87bea224a14c1e960d32af6656628d/execute?api-version=2.0&details=true'
+                api_key = 'LZnvjFxHlTdOyAfRr5DimpXaZDWq3J64iIkO+eEFNX88bd956mcCCJsIvJrWr3eKSA+VniEru0IgQ7u9BxuJKw=='
         elif  DS_type == "BFD":
                 url = 'https://ussouthcentral.services.azureml.net/workspaces/8aba4c4d1e034b56941f1f916e884791/services/ee77034b2d0947f9a675dd11d3aa867e/execute?api-version=2.0&details=true'
                 api_key = 'ddMZyeiL/6a14Zlh2BlOfUkkf76A70/0DgtGuWVuXBy9RLploLlDAuAGe5PIP7cLmqcvRC805h7CjxV2ysijZw=='
@@ -111,8 +110,8 @@ def main():
                 url = 'https://ussouthcentral.services.azureml.net/workspaces/8aba4c4d1e034b56941f1f916e884791/services/25e8f06d5e7048bfa64f92cdb249c274/execute?api-version=2.0&details=true'
                 api_key = 'fy4lM67b2VzYJzELzVqqG6zxoodR1OFfi60GbTRabIHaBZfRAJrO1OHhehHKfc8n/TyJnmLGKXQ2JenfPMQUJg=='
         elif  DS_type == "PL":
-                url = 'https://ussouthcentral.services.azureml.net/workspaces/8aba4c4d1e034b56941f1f916e884791/services/13bf2e27aa51418a953ddeaf8ec5bfd5/execute?api-version=2.0&details=true'
-                api_key = 'Ix6qkPiMr/rIeBSswcAcIK+p3r2QQhMUqA+EmM1nx8C/rOJlUNhYWf1S/3UqUGRx/4lPCc8uC60u3ZeRI0nXbg=='
+                url = 'https://ussouthcentral.services.azureml.net/workspaces/8aba4c4d1e034b56941f1f916e884791/services/5f87bea224a14c1e960d32af6656628d/execute?api-version=2.0&details=true'
+                api_key = 'LZnvjFxHlTdOyAfRr5DimpXaZDWq3J64iIkO+eEFNX88bd956mcCCJsIvJrWr3eKSA+VniEru0IgQ7u9BxuJKw=='
 
 
         headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
